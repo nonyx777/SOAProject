@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  client:
+    build: ./client_service
+    ports:
+      - "8000:8000"
+
+  product:
+    build: ./product_service
+    ports:
+      - "8001:8001"
+    depends_on:
+      - client
