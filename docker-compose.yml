@@ -1,14 +1,37 @@
 version: '3.8'
 
 services:
-  client:
+  database:
+    build: ./database
+    environment:
+      POSTGRES_USER: fastapi_user
+      POSTGRES_PASSWORD: fastapi_password
+      POSTGRES_DB: fastapi_db
+    ports:
+      - "5433:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fastapi_user -d fastapi_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  client_service:
     build: ./client_service
+    environment:
+      - DATABASE_URL=postgresql://fastapi_user:fastapi_password@database:5432/fastapi_db
     ports:
       - "8000:8000"
+    depends_on:
+      database:
+        condition: service_healthy
 
-  product:
+  product_service:
     build: ./product_service
+    environment:
+      - DATABASE_URL=postgresql://fastapi_user:fastapi_password@database:5432/fastapi_db
     ports:
       - "8001:8001"
     depends_on:
-      - client
+      database:
+        condition: service_healthy
+
