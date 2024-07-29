@@ -18,6 +18,7 @@ BEGIN
             name VARCHAR(255) NOT NULL,
             description TEXT,
             price DECIMAL(10, 2) NOT NULL,
+            amount_left INTEGER NOT NULL,
             is_up_for_auction BOOLEAN DEFAULT FALSE
         );
     END IF;
