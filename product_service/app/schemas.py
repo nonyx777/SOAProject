@@ -5,6 +5,7 @@ class ProductBase(BaseModel):
     name: str
     description: Optional[str] = None
     price: float
+    amount_left: int
     is_up_for_auction: bool
 
 class ProductCreate(ProductBase):
