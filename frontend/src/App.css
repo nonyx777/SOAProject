@@ -1,0 +1,195 @@
+.navbar-container {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    gap: 20px;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+  
+  .links {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .link{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  
+    width: 50px;
+    height: 50px;
+    background-color: #F1F5F9;
+    border-radius: 20px;
+  }
+  
+  .search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 0 20px;
+    height: 50px;
+    background-color: #F1F5F9;
+    border-radius: 20px;
+  }
+  
+  .search-input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background-color: transparent;
+  }
+  
+  .browse-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    height: 50px;
+    background-color: #008AF7;
+    border-radius: 20px;
+    color: white;
+  }
+  /* ================================================= */
+  .hero-container {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    margin-top: 30px;
+    margin-left: 20px;
+    border-radius: 20px;
+    background-color: #F1F5F9;
+    width: 94%;
+  }
+  
+  .hero-img{
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: 10px;
+    padding-left: 10px;
+  }
+  
+  .hero-right{
+    margin-bottom: 40px;
+    margin-left: 60px;
+  }
+  
+  .hero-right h1{
+    font-size: 50px;
+  }
+  
+  .hero-right h1 span{
+    color: #008AF7;
+  }
+  
+  .btn-action{
+    display: flex;
+    gap: 20px;
+  }
+  
+  .btn-action a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 50px;
+    height: 50px;
+    border: 2px solid #008AF7;
+  }
+  
+  .sell-btn{
+    background-color: #F1F5F9;
+    border-radius: 20px;
+    color: #008AF7;
+  }
+  
+  /* ==================================================== */
+  
+  .art-auction{
+    display: flex;
+    flex-direction: column;
+    width: 23%;
+    height: 70%;
+    padding: 20px 30px;
+    background-color: #F1F5F9;
+    border-radius: 20px;
+    margin-left: 20px;
+    position: relative;
+  } 
+
+  .art-auction2{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 70%;
+    padding: 20px 30px;
+    background-color: #F1F5F9;
+    border-radius: 20px;
+    margin-left: 20px;
+    position: relative;
+  } 
+  
+  .art-auction img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .art-auction2 img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .art-auction-text-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .art-auction-text-container2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -20px;
+  
+  }
+  
+  .art-auction-text-container h3{
+    font-size: 20px;
+  }
+  
+  .art-auction-text-container2 h3{
+    font-size: 20px;
+  }
+  
+  .art-auction-text-container h3 span{
+    color: #008AF7;
+  }
+  
+  .art-auction-text-container2 h3 span{
+    color: #008AF7;
+  }
+  
+  .art-auction a{
+    color: #008AF7;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #008AF7;
+    color: white;
+    width: 100%;
+    height: 50px;
+  }
