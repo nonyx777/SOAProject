@@ -24,6 +24,15 @@ def get_db():
         db.close()
 
 @app.post("/login/", response_model=schemas.Credential)
+def login(credential: schemas.CredentialUpdate, db: Session = Depends(get_db)):
+    db_credential = crud.verify_credentials(db, credential)
+
+    if db_credential:
+        return db_credential
+    else:
+        raise HTTPException(status_code=401, detail="Invalid username or password")
+
+@app.post("/update/", response_model=schemas.Credential)
 def update_credential(credential: schemas.CredentialUpdate, db: Session = Depends(get_db)):
     db_credential = crud.update_credential(db, credential)
     return db_credential
