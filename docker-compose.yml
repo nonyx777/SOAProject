@@ -48,6 +48,12 @@ services:
       - product_service
     volumes:
       - frontend_data:/app
+  
+  auth:
+    build: ./auth_service
+    ports:
+      - "8002:8002"
+    
 
 volumes:
   postgres_data: {}
