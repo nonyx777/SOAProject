@@ -16,3 +16,13 @@ def update_credential(db: Session, credential: schemas.CredentialUpdate):
     db.commit()
     db.refresh(db_credential)
     return db_credential
+
+def verify_credentials(db: Session, credential: schemas.CredentialUpdate):
+    try:
+        db_credential = db.query(models.Credential).filter(
+            models.Credential.username == credential.username,
+            models.Credential.password == credential.password
+        ).one()
+        return db_credential
+    except NoResultFound:
+        return None
