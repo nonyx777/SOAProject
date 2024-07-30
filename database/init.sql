@@ -24,3 +24,15 @@ BEGIN
     END IF;
 END
 $$;
+
+DO $$
+BEGIN
+    IF NOT EXISTS (SELECT FROM pg_catalog.pg_tables WHERE tablename = 'credentials') THEN
+        CREATE TABLE credentials (
+            id SERIAL PRIMARY KEY,
+            username VARCHAR(255) NOT NULL,
+            password VARCHAR(255) NOT NULL
+        );
+    END IF;
+END
+$$;
