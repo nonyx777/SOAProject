@@ -23,3 +23,21 @@ EOSQL
 psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "fastapi_db" <<-EOSQL
     \i /docker-entrypoint-initdb.d/init.sql
 EOSQL
+
+# Create the credentials table and insert data
+psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "fastapi_db" <<-EOSQL
+    DO \$\$
+    BEGIN
+        IF NOT EXISTS (SELECT FROM pg_catalog.pg_tables WHERE tablename = 'credentials') THEN
+            CREATE TABLE credentials (
+                id SERIAL PRIMARY KEY,
+                username VARCHAR(255) NOT NULL,
+                password VARCHAR(255) NOT NULL
+            );
+        END IF;
+    END
+    \$\$;
+
+    INSERT INTO credentials (username, password)
+    VALUES ('admin', 'admin')
+EOSQL

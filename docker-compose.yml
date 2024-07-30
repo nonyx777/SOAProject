@@ -51,8 +51,13 @@ services:
   
   auth:
     build: ./auth_service
+    environment:
+      - DATABASE_URL=postgresql://fastapi_user:fastapi_password@database:5432/fastapi_db
     ports:
       - "8002:8002"
+    depends_on:
+      database:
+        condition: service_healthy
     
 
 volumes:
