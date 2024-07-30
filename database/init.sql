@@ -17,6 +17,7 @@ BEGIN
             id SERIAL PRIMARY KEY,
             name VARCHAR(255) NOT NULL,
             description TEXT,
+            image VARCHAR(255) NOT NULL,
             price DECIMAL(10, 2) NOT NULL,
             amount_left INTEGER NOT NULL,
             is_up_for_auction BOOLEAN DEFAULT FALSE

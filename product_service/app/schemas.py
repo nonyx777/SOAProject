@@ -4,6 +4,7 @@ from typing import List, Optional
 class ProductBase(BaseModel):
     name: str
     description: Optional[str] = None
+    image: str
     price: float
     amount_left: int
     is_up_for_auction: bool
