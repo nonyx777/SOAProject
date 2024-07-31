@@ -119,6 +119,7 @@
     border-radius: 20px;
     margin-left: 20px;
     position: relative;
+    border: 1px solid red;
   } 
 
   .art-auction2{

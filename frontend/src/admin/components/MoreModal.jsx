@@ -1,6 +1,6 @@
 import { Modal, Button } from "@mantine/core";
 
-export function MoreModal({ opened, close }) {
+export function MoreModal({ opened, close, products }) {
   return (
     <>
       <Modal

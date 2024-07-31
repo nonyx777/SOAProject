@@ -17,7 +17,7 @@ export function CreateModal({ opened, close }) {
   const [artName, setArtName] = useState("");
   const [artPrice, setArtPrice] = useState("");
   const [artDescription, setArtDescription] = useState("");
-  const [artFile, setArtFile] = useState(null);
+  const [artUrl, setArtUrl] = useState("");
   const [artStat, setArtStat] = useState(true);
   const [amountLeft, setAmountLeft] = useState(0);
 
@@ -27,7 +27,7 @@ export function CreateModal({ opened, close }) {
       const productData = {
         name: artName,
         description: artDescription,
-        image: "image", // Use filename or default string
+        image: artUrl, // Use filename or default string
         price: parseFloat(artPrice), // Ensure float
         amount_left: parseInt(amountLeft, 10), // Ensure integer
         is_up_for_auction: artStat,
@@ -85,6 +85,16 @@ export function CreateModal({ opened, close }) {
           value={artName}
           onChange={(e) => setArtName(e.target.value)}
         />
+        <TextInput
+          rightSectionPointerEvents="none"
+          rightSection={<IconId />}
+          label={<p style={{}}>Image Url</p>}
+          placeholder="Image Url"
+          style={{ borderRadius: "5px", padding: "10px" }}
+          size="md"
+          value={artUrl}
+          onChange={(e) => setArtUrl(e.target.value)}
+        />
         <Textarea
           rightSectionPointerEvents="none"
           rightSection={<IconId />}
@@ -94,15 +104,6 @@ export function CreateModal({ opened, close }) {
           size="md"
           value={artDescription}
           onChange={(e) => setArtDescription(e.target.value)}
-        />
-        <FileInput
-          accept=".jpg"
-          label={<p style={{}}>Upload Art </p>}
-          placeholder="No Chosen File"
-          rightSection={<IconUpload />}
-          style={{ borderRadius: "5px", padding: "10px", marginBottom: "10px" }}
-          size="md"
-          onChange={setArtFile}
         />
         <TextInput
           rightSectionPointerEvents="none"
