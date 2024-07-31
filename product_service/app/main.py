@@ -9,8 +9,21 @@ models.Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 origins = [
+    "http://localhost:8000",
+    "http://localhost:8001",
+    "http://localhost:8002",
     "http://localhost:3000",
     "http://localhost:5173",
+    "http://127.0.0.1:8000",
+    "http://127.0.0.1:8001",
+    "http://127.0.0.1:8002",
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:5173",
+    "http://0.0.0.0:8000",
+    "http://0.0.0.0:8001",
+    "http://0.0.0.0:8002",
+    "http://0.0.0.0:3000",
+    "http://0.0.0.0:5173",
 ]
 
 app.add_middleware(
@@ -19,6 +32,7 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["*"],
 )
 
 def get_db():
