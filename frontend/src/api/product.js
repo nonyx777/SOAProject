@@ -14,9 +14,46 @@ export const getProduct = async (id) => {
     return response.data;
 };
 
-export const createProduct = async (product) => {
-  const response = await axios.post(`${API_BASE_URL}/products/`, {
-    product,
-  });
-  return response.data;
+export const createProduct = async (
+  name, 
+  description, 
+  image,
+  price, 
+  amount_left, 
+  is_up_for_auction
+) => {
+  try {
+    // Create a JSON payload matching the Postman structure
+    const productData = {
+      name,
+      description,
+      image,
+      price: parseFloat(price),  // Convert to float
+      amount_left: parseInt(amount_left, 10),  // Convert to integer
+      is_up_for_auction
+    };
+
+    console.log('Sending product data:', productData); // Debugging
+
+    // Send the POST request with the correct headers
+    const response = await axios.post(`${API_BASE_URL}/products/`,{
+      name,
+      description,
+      image,
+      price,
+      amount_left,
+      is_up_for_auction,
+      headers: {
+        'Content-Type': 'application/json',  // Explicit JSON content type
+      },
+    });
+
+    // Return the response data
+    return response.data;
+  } catch (error) {
+    // Handle errors
+    console.error('Failed to create product:', error.response?.data || error.message);
+    throw error; // Propagate error for handling in the component
+  }
 };
+

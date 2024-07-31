@@ -23,24 +23,37 @@ export function CreateModal({ opened, close }) {
 
   const handleCreateProduct = async () => {
     try {
-
+      // Prepare data as JSON
       const productData = {
         name: artName,
         description: artDescription,
-        image: "image",
-        price: parseFloat(artPrice),
-        amount_left: parseInt(amountLeft, 10),
+        image: "image", // Use filename or default string
+        price: parseFloat(artPrice), // Ensure float
+        amount_left: parseInt(amountLeft, 10), // Ensure integer
         is_up_for_auction: artStat,
       };
 
-      console.log(productData);
+      // Debugging: log productData
+      console.log('Creating Product:', productData);
 
-      await createProduct(productData);
+      // Call createProduct with individual arguments
+      await createProduct(
+        productData.name,
+        productData.description,
+        productData.image,
+        productData.price,
+        productData.amount_left,
+        productData.is_up_for_auction
+      );
+
+      // Close the modal after successful creation
       close();
     } catch (error) {
-      console.error("Failed to create product", error);
+      // Handle errors in product creation
+      console.error('Failed to create product:', error);
     }
   };
+
 
   return (
     <>
