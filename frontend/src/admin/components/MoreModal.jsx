@@ -1,6 +1,6 @@
 import { Modal, Button } from "@mantine/core";
 
-export function MoreModal({ opened, close, products }) {
+export function MoreModal({ opened, close, product }) {
   return (
     <>
       <Modal
@@ -21,7 +21,7 @@ export function MoreModal({ opened, close, products }) {
               marginLeft: "70px",
             }}
           >
-            More Details
+            {product.name}
           </h1>
         }
         centered
@@ -31,7 +31,7 @@ export function MoreModal({ opened, close, products }) {
         <div>
           <div style={{ display: "flex", justifyContent: "center" }}>
             <img
-              src="/inner.png"
+              src={product.image}
               alt=""
               style={{
                 width: "50%",
@@ -43,16 +43,13 @@ export function MoreModal({ opened, close, products }) {
           </div>
 
           <div style={{ width: "73%", margin: "auto" }}>
-            <h1>Art Name</h1>
+            <h1>{product.name}</h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae eius
-              perspiciatis consectetur ipsam autem et aspernatur ducimus? Nihil
-              laboriosam obcaecati ullam animi ad ratione commodi architecto,
-              officiis sapiente culpa ut?
+              {product.description}
             </p>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <h1 style={{ color: "#008AF7" }}> 12 in Stock</h1>
-              <h1 style={{ color: "#008AF7" }}> 10,000 ETB</h1>
+              <h1 style={{ color: "#008AF7" }}> {product.amount_left} in Stock</h1>
+              <h1 style={{ color: "#008AF7" }}> {product.price} ETB</h1>
             </div>
           </div>
         </div>

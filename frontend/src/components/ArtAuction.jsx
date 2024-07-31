@@ -7,6 +7,7 @@ import { getProducts } from "../api/product";
 const ArtAuction = () => {
   const [opened, { open, close }] = useDisclosure(false);
   const [products, setProducts] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState([]);
 
   useEffect(() => {
     // Fetch all products when component mounts
@@ -49,12 +50,15 @@ const ArtAuction = () => {
               fullWidth
               size="md"
               style={{ borderRadius: "10px" }}
-              onClick={open}
+              onClick={() => {
+                setSelectedProduct(product);
+                open();
+              }}
             >
               View More
             </Button>
 
-            <MoreModal opened={opened} close={close} products />
+            <MoreModal opened={opened} close={close} product={selectedProduct} />
           </div>
         </div>
       ))}

@@ -26,18 +26,8 @@ const Dashboard = () => {
           Create Art Auction
         </Button>
       </div>
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: "20px",
-        }}
-      >
-        <AdminAuctionCard />
-        <AdminAuctionCard />
-        <AdminAuctionCard />
-        <AdminAuctionCard />
-      </div>
+      <AdminAuctionCard />
+
 
       <CreateModal opened={opened} close={close} />
     </>
