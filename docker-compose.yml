@@ -46,8 +46,6 @@ services:
     depends_on:
       - client_service
       - product_service
-    volumes:
-      - frontend_data:/app
   
   auth:
     build: ./auth_service
@@ -62,4 +60,3 @@ services:
 
 volumes:
   postgres_data: {}
-  frontend_data: {}
