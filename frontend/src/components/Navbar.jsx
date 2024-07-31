@@ -1,23 +1,18 @@
 import { IconHome, IconPodium, IconSearch } from "@tabler/icons-react";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <div className="navbar-container">
       <div className="links">
           <div className="link">
-            <IconHome style={{ cursor: "pointer", color: "008AF7" }} />
+            <IconHome style={{ cursor: "pointer", color: "008AF7" }} onClick={() => navigate("/")} />
           </div>
           <div className="link">
-            <IconPodium style={{ cursor: "pointer", color: "008AF7" }} />
+            <IconPodium style={{ cursor: "pointer", color: "008AF7" }} onClick={() => navigate("/admin")} />
           </div>
-      </div>
-      <div className="search">
-        <IconSearch style={{ cursor: "pointer", color: "008AF7" }} />
-        <input type="text" placeholder="Search" className="search-input" />
-      </div>
-      <div className="browse-btn">
-       <a className="btn">Browse</a>
       </div>
     </div>
   );

@@ -30,6 +30,7 @@ export default function Auth() {
       });
 
       if (response.status === 200) {
+        localStorage.setItem("token", response.data.token);
         navigate("/admin");
       }
     } catch (error) {

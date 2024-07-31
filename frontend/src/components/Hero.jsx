@@ -9,12 +9,14 @@ const Hero = () => {
 
       <div className="hero-right">
         <h1>
-          <span>Discover</span>, <span>Collect</span> and <br></br><span>Sell</span> Your{" "}
+          <span>Discover</span>, <span>Collect</span> and <br></br><span>Purchase</span> {" "}
           <span>Arts!</span>
         </h1>
         <div className="btn-action">
           <a className="browse-btn">Browse</a>
-          <a className="sell-btn">Sell</a>
+          <a className="sell-btn">Show</a>
+          <a className="browse-btn">Discover</a>
+
         </div>
       </div>
     </div>

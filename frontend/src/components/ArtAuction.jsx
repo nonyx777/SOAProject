@@ -7,6 +7,7 @@ import { getProducts } from "../api/product";
 const ArtAuction = () => {
   const [opened, { open, close }] = useDisclosure(false);
   const [products, setProducts] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState([]);
 
   useEffect(() => {
     // Fetch all products when component mounts
@@ -41,7 +42,7 @@ const ArtAuction = () => {
                 <span>{product.amount_left} in stock</span>
               </h3>
               <div>
-              <Badge color="green">{product.is_up_for_auction ? "Up for Auction" : "Fixed Price"}</Badge>
+              <Badge color={product.is_up_for_auction ? "green" : "red"}>{product.is_up_for_auction ? "Available" : "Not Available"}</Badge>
               </div>
             </div>
 
@@ -49,12 +50,15 @@ const ArtAuction = () => {
               fullWidth
               size="md"
               style={{ borderRadius: "10px" }}
-              onClick={open}
+              onClick={() => {
+                setSelectedProduct(product);
+                open();
+              }}
             >
               View More
             </Button>
 
-            <MoreModal opened={opened} close={close} products />
+            <MoreModal opened={opened} close={close} product={selectedProduct} />
           </div>
         </div>
       ))}

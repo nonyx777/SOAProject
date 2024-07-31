@@ -11,22 +11,27 @@ import Sidebar from "./admin/components/Sidebar";
 import Dashboard from "./admin/pages/Dashboard";
 import Users from "./admin/pages/Users";
 import Auth from "./admin/components/auth";
+import ProtectedRoute from "./components/ProtectedRoutes";
 
 const App = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/login" element={<Auth/>} />
+        <Route path="/login" element={<Auth />} />
+
+        {/* Protect /admin/* routes */}
         <Route
           path="/admin/*"
           element={
-            <Sidebar>
-              <Routes>
-                <Route path="" element={<Dashboard />} />
-                <Route path="/users" element={<Users />} />
-              </Routes>
-            </Sidebar>
+            <ProtectedRoute>
+              <Sidebar>
+                <Routes>
+                  <Route path="" element={<Dashboard />} />
+                  <Route path="/users" element={<Users />} />
+                </Routes>
+              </Sidebar>
+            </ProtectedRoute>
           }
         />
       </Routes>
