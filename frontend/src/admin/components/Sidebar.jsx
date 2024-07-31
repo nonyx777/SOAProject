@@ -12,18 +12,19 @@ import {
   Badge,
   Image,
 } from "@mantine/core";
-import { IconLogout } from "@tabler/icons-react";
+import { IconSettings } from "@tabler/icons-react";
 
 import { routes } from "./routes";
 
 import { useDisclosure } from "@mantine/hooks";
 import { useNavigate, useLocation } from "react-router-dom";
-import Logo from "../../assets/react.svg";
+import { ChangePassword } from "./ChangePassword";
 export default function Sidebar({ children }) {
   const location = useLocation();
   const navigate = useNavigate();
   const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
   const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true);
+  const [opened, { open, close }] = useDisclosure(false);
 
   return (
     <AppShell
@@ -55,10 +56,12 @@ export default function Sidebar({ children }) {
               visibleFrom="sm"
               size="sm"
             />
+            <div onClick={() => navigate("/")}>
             <Image h="30px" w="30px" src="/vite.svg" />
             <Text size="xl" fw={900} color="#14213D">
               <span style={{ color: "#008AF7" }}>Art</span> Auction
             </Text>
+            </div>
           </div>
           <div className="right" style={{ display: "flex", gap: "10px" }}>
             <Badge radius="xl" color="#14213D" size="lg">
@@ -126,7 +129,7 @@ export default function Sidebar({ children }) {
                 src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-1.png"
               />
               <div className="content">
-                <span>Betemariam</span>
+                <span>Admin</span>
                 <Text color="dimmed" variant="light" size="xs">
                   System Admin
                 </Text>
@@ -138,9 +141,10 @@ export default function Sidebar({ children }) {
               size="xl"
               loaderProps={{ type: "dots" }}
             >
-              <IconLogout />
+              <IconSettings onClick={() => open() }/>
             </ActionIcon>
           </div>
+          <ChangePassword  opened={opened} close={close} />
         </AppShell.Section>
       </AppShell.Navbar>
       <AppShell.Main>{children}</AppShell.Main>

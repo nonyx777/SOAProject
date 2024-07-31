@@ -12,10 +12,10 @@ const Navbar = () => {
             <IconPodium style={{ cursor: "pointer", color: "008AF7" }} />
           </div>
       </div>
-      <div className="search">
+      {/* <div className="search">
         <IconSearch style={{ cursor: "pointer", color: "008AF7" }} />
         <input type="text" placeholder="Search" className="search-input" />
-      </div>
+      </div> */}
       <div className="browse-btn">
        <a className="btn">Browse</a>
       </div>
