@@ -11,7 +11,7 @@ const Dashboard = () => {
   return (
     <>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <h1 style={{ marginLeft: "25px" }}>Art Auction</h1>
+        <h1 style={{ marginLeft: "25px" }}>Art Gallery</h1>
         <Button
           size="md"
           style={{
@@ -23,7 +23,7 @@ const Dashboard = () => {
           }}
           onClick={open}
         >
-          Create Art Auction
+          Create Art
         </Button>
       </div>
       <AdminAuctionCard />

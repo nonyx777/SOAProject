@@ -8,7 +8,7 @@ const Main = () => {
     <div>
       <Navbar />
       <Hero />
-      <h1 style={{ marginLeft: "25px" }}>Art Auction</h1>
+      <h1 style={{ marginLeft: "25px" }}>Art Gallery</h1>
 
       <ArtAuction />
     </div>

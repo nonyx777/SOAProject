@@ -56,20 +56,15 @@ export default function Sidebar({ children }) {
               visibleFrom="sm"
               size="sm"
             />
-            <div onClick={() => navigate("/")}>
-            <Image h="30px" w="30px" src="/vite.svg" />
-            <Text size="xl" fw={900} color="#14213D">
-              <span style={{ color: "#008AF7" }}>Art</span> Auction
-            </Text>
+            <div onClick={() => navigate("/")} style={{ cursor: "pointer" }}>
+              <Image h="30px" w="30px" src="/vite.svg" />
+              <Text size="xl" fw={900} color="#14213D">
+                <span style={{ color: "#008AF7" }}>Art</span> Auction
+              </Text>
             </div>
           </div>
           <div className="right" style={{ display: "flex", gap: "10px" }}>
-            <Badge radius="xl" color="#14213D" size="lg">
-              0.1.0
-            </Badge>
-            <Badge radius="xl" color="#008AF7" size="lg">
-              alpha release
-            </Badge>
+            <Button radius="xl" color="red" onClick={() => { localStorage.clear(); navigate("/") }}>Logout</Button>
           </div>
         </Group>
       </AppShell.Header>
@@ -141,10 +136,10 @@ export default function Sidebar({ children }) {
               size="xl"
               loaderProps={{ type: "dots" }}
             >
-              <IconSettings onClick={() => open() }/>
+              <IconSettings onClick={() => open()} />
             </ActionIcon>
           </div>
-          <ChangePassword  opened={opened} close={close} />
+          <ChangePassword opened={opened} close={close} />
         </AppShell.Section>
       </AppShell.Navbar>
       <AppShell.Main>{children}</AppShell.Main>

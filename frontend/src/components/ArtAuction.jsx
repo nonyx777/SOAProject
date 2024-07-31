@@ -42,7 +42,7 @@ const ArtAuction = () => {
                 <span>{product.amount_left} in stock</span>
               </h3>
               <div>
-              <Badge color="green">{product.is_up_for_auction ? "Up for Auction" : "Fixed Price"}</Badge>
+              <Badge color={product.is_up_for_auction ? "green" : "red"}>{product.is_up_for_auction ? "Available" : "Not Available"}</Badge>
               </div>
             </div>
 
