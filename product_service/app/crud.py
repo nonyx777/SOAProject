@@ -13,3 +13,10 @@ def create_product(db: Session, product: schemas.ProductCreate):
     db.commit()
     db.refresh(db_product)
     return db_product
+def delete_all_products(db:Session):
+    try:
+        db.query(models.Product).delete()
+        db.commit()
+    except Exception as e:
+        db.rollback()
+        raise e
