@@ -57,3 +57,10 @@ def read_product(product_id: int, db: Session = Depends(get_db)):
     if db_product is None:
         raise HTTPException(status_code=404, detail="Product not found")
     return db_product
+@app.delete("/products/", status_code=204)
+def delete_all_products(db: Session = Depends(get_db)):
+    try:
+        crud.delete_all_products(db)
+        return {"message": "All products have been deleted."}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"An error occurred while deleting products: {str(e)}")
